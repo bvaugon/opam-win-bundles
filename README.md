@@ -1,2 +1,2 @@
-opam-win-bundles
-================
+Opam bundles of some windows C libraries
+========================================
