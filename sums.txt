@@ -1,3 +1,0 @@
-079fff78ccbae7a2344a1bc8128cc890  gtk+-bundle_2.22.1-20101229_win64.tar.bz2
-0c7bc7d6de66a802b9588a901e13adc9  gtk+-bundle_2.24.10-20120208_win32.tar.bz2
-44d667c142d7cda120332623eab69f40  zlib-1.2.8.tar.gz
