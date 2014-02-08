@@ -1,3 +1,4 @@
+LIBRARY libpng14-14.dll
 EXPORTS
 png_access_version_number
 png_build_grayscale_palette

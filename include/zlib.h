@@ -1558,50 +1558,18 @@ ZEXTERN int ZEXPORT inflateBackInit_ OF((z_streamp strm, int windowBits,
 
 /* LFS conventions have no meaning on Windows. Looking for feature
  * macros like _LARGEFILE64_SOURCE or _FILE_OFFSET_BITS on Windows is
- * wrong. So make sure any such macros misguidedly defined by the user
- * have no effect. Windows has large file support, period. So, no
- * problem in always providing this API on Windows.
+ * wrong. So make sure any such macros misguidedly defined by the
+ * user have no effect. Windows has large file support, but the
+ * official zlib DLL has not been built to provide the 64-bit offset
+ * APIs, sigh.  So we have just patched out the 64-bit offset API
+ * from this header file.
  */
-
-/* provide 64-bit offset functions if _LARGEFILE64_SOURCE defined, and/or
- * change the regular functions to 64 bits if _FILE_OFFSET_BITS is 64 (if
- * both are true, the application gets the *64 functions, and the regular
- * functions are changed to 64 bits) -- in case these are set on systems
- * without large file support, _LFS64_LARGEFILE must also be true
- */
-
-#if defined(_WIN32) || (defined(_LARGEFILE64_SOURCE) && _LFS64_LARGEFILE-0)
-   ZEXTERN gzFile ZEXPORT gzopen64 OF((const char *, const char *));
-   ZEXTERN z_off64_t ZEXPORT gzseek64 OF((gzFile, z_off64_t, int));
-   ZEXTERN z_off64_t ZEXPORT gztell64 OF((gzFile));
-   ZEXTERN z_off64_t ZEXPORT gzoffset64 OF((gzFile));
-   ZEXTERN uLong ZEXPORT adler32_combine64 OF((uLong, uLong, z_off64_t));
-   ZEXTERN uLong ZEXPORT crc32_combine64 OF((uLong, uLong, z_off64_t));
-#endif
-
-#if !defined(_WIN32) && !defined(ZLIB_INTERNAL) && _FILE_OFFSET_BITS-0 == 64 && _LFS64_LARGEFILE-0
-#  define gzopen gzopen64
-#  define gzseek gzseek64
-#  define gztell gztell64
-#  define gzoffset gzoffset64
-#  define adler32_combine adler32_combine64
-#  define crc32_combine crc32_combine64
-#  ifdef _LARGEFILE64_SOURCE
-     ZEXTERN gzFile ZEXPORT gzopen64 OF((const char *, const char *));
-     ZEXTERN z_off_t ZEXPORT gzseek64 OF((gzFile, z_off_t, int));
-     ZEXTERN z_off_t ZEXPORT gztell64 OF((gzFile));
-     ZEXTERN z_off_t ZEXPORT gzoffset64 OF((gzFile));
-     ZEXTERN uLong ZEXPORT adler32_combine64 OF((uLong, uLong, z_off_t));
-     ZEXTERN uLong ZEXPORT crc32_combine64 OF((uLong, uLong, z_off_t));
-#  endif
-#else
    ZEXTERN gzFile ZEXPORT gzopen OF((const char *, const char *));
    ZEXTERN z_off_t ZEXPORT gzseek OF((gzFile, z_off_t, int));
    ZEXTERN z_off_t ZEXPORT gztell OF((gzFile));
    ZEXTERN z_off_t ZEXPORT gzoffset OF((gzFile));
    ZEXTERN uLong ZEXPORT adler32_combine OF((uLong, uLong, z_off_t));
    ZEXTERN uLong ZEXPORT crc32_combine OF((uLong, uLong, z_off_t));
-#endif
 
 /* hack for buggy compilers */
 #if !defined(ZUTIL_H) && !defined(NO_DUMMY_DECL)

@@ -844,12 +844,14 @@ void	   gtk_widget_set		  (GtkWidget	       *widget,
 					   const gchar         *first_property_name,
 					   ...) G_GNUC_NULL_TERMINATED;
 #endif /* GTK_DISABLE_DEPRECATED */
+#if !defined(GTK_DISABLE_DEPRECATED) || defined (GTK_COMPILATION)
+void       gtk_widget_hide_all            (GtkWidget           *widget);
+#endif
 void	   gtk_widget_unparent		  (GtkWidget	       *widget);
 void	   gtk_widget_show		  (GtkWidget	       *widget);
 void       gtk_widget_show_now            (GtkWidget           *widget);
 void	   gtk_widget_hide		  (GtkWidget	       *widget);
 void	   gtk_widget_show_all		  (GtkWidget	       *widget);
-void	   gtk_widget_hide_all		  (GtkWidget	       *widget);
 void       gtk_widget_set_no_show_all     (GtkWidget           *widget,
 					   gboolean             no_show_all);
 gboolean   gtk_widget_get_no_show_all     (GtkWidget           *widget);
@@ -953,7 +955,7 @@ gboolean   gtk_widget_has_grab            (GtkWidget           *widget);
 
 void                  gtk_widget_set_name               (GtkWidget    *widget,
 							 const gchar  *name);
-G_CONST_RETURN gchar* gtk_widget_get_name               (GtkWidget    *widget);
+const gchar*          gtk_widget_get_name               (GtkWidget    *widget);
 
 void                  gtk_widget_set_state              (GtkWidget    *widget,
 							 GtkStateType  state);
@@ -1266,8 +1268,10 @@ void	     gtk_widget_input_shape_combine_mask (GtkWidget *widget,
 						  gint       offset_x,
 						  gint       offset_y);
 
+#if !defined(GTK_DISABLE_DEPRECATED) || defined (GTK_COMPILATION)
 /* internal function */
 void	     gtk_widget_reset_shapes	   (GtkWidget *widget);
+#endif
 
 /* Compute a widget's path in the form "GtkWindow.MyLabel", and
  * return newly alocated strings.

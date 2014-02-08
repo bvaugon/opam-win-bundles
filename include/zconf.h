@@ -274,17 +274,17 @@
  * DLL or not. That build should have a specific corresponding zconf.h
  * distributed. The zconf.h thus knows a priori whether the
  * corresponding library was built as a DLL or not. Requiring the
- * library user to define ZLIB_DLL when compiling, and intending to
- * link against the import library for such a DLL build, is
- * silly. Instead just unconditionally define ZLIB_DLL here as this
- * build is a DLL, period.
+ * library user to define ZLIB_DLL when compiling his code, intending
+ * to link against the import library for such a DLL build, is
+ * silly. Instead just unconditionally define ZLIB_DLL here as the
+ * official Windows build of zlib is a DLL, period.
  *
  * Similarly, when a specific build of zlib is done on (32-bit)
  * Windows, it either uses the WINAPI calling convention or not. A
  * user of a prebuilt library can not choose later. So it is pointless
  * to require the user to define ZLIB_WINAPI when compiling. Instead,
  * just have a specific copy of this zconf.h that corresponds to that
- * build of zlib. In the case here, we don't build zlib with WINAPI,
+ * build of zlib. For the case of the official build, it doe not use WINAPI,
  * so ignore any attempt by a misguided user to use it.
  */
 
@@ -393,7 +393,8 @@ typedef uLong FAR uLongf;
 /* LFS conventions have no meaning on Windows. Looking for feature
  * macros like _LARGEFILE64_SOURCE or _FILE_OFFSET_BITS on Windows is
  * wrong. So make sure any such macros misguidedly defined by the user
- * have no effect.
+ * have no effect. Windows has large file support, but the official zlib
+ * DLL has not been built to provide the 64-bit offset APIs, sigh.
  */
 
 /* a little trick to accommodate both "#define _LARGEFILE64_SOURCE" and
@@ -429,11 +430,7 @@ typedef uLong FAR uLongf;
 #if !defined(_WIN32) && (defined(_LARGEFILE64_SOURCE) && _LFS64_LARGEFILE-0)
 #  define z_off64_t off64_t
 #else
-#  if defined(_WIN32)
-#    define z_off64_t __int64
-#  else
-#    define z_off64_t z_off_t
-#  endif
+#  define z_off64_t z_off_t
 #endif
 
 #if defined(__OS400__)

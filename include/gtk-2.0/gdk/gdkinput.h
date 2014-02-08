@@ -130,7 +130,7 @@ GType          gdk_device_get_type      (void) G_GNUC_CONST;
 GList *        gdk_devices_list              (void);
 #endif /* GDK_MULTIHEAD_SAFE */
 
-G_CONST_RETURN gchar *gdk_device_get_name       (GdkDevice *device);
+const gchar *         gdk_device_get_name       (GdkDevice *device);
 GdkInputSource        gdk_device_get_source     (GdkDevice *device);
 GdkInputMode          gdk_device_get_mode       (GdkDevice *device);
 gboolean              gdk_device_get_has_cursor (GdkDevice *device);
@@ -141,6 +141,7 @@ void                  gdk_device_get_key        (GdkDevice       *device,
                                                  GdkModifierType *modifiers);
 GdkAxisUse            gdk_device_get_axis_use   (GdkDevice       *device,
                                                  guint            index);
+gint                  gdk_device_get_n_keys     (GdkDevice       *device);
 gint                  gdk_device_get_n_axes     (GdkDevice       *device);
 
 /* Functions to configure a device */

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
-<book xmlns="http://www.devhelp.net/book" title="GDK Reference Manual" link="index.html" author="" name="gdk" version="2" language="c">
+<book xmlns="http://www.devhelp.net/book" title="GDK 2 Reference Manual" link="index.html" author="" name="gdk" version="2" language="c">
   <chapters>
     <sub name="API Reference" link="reference.html">
       <sub name="General" link="gdk-General.html"/>
@@ -55,8 +55,8 @@
     <keyword type="function" name="gdk_init_check ()" link="gdk-General.html#gdk-init-check"/>
     <keyword type="function" name="gdk_parse_args ()" link="gdk-General.html#gdk-parse-args" since="2.2"/>
     <keyword type="function" name="gdk_get_display_arg_name ()" link="gdk-General.html#gdk-get-display-arg-name" since="2.2"/>
-    <keyword type="function" name="gdk_set_locale ()" link="gdk-General.html#gdk-set-locale"/>
-    <keyword type="function" name="gdk_set_sm_client_id ()" link="gdk-General.html#gdk-set-sm-client-id"/>
+    <keyword type="function" name="gdk_set_locale ()" link="gdk-General.html#gdk-set-locale" deprecated="2.24: Use setlocale() directly"/>
+    <keyword type="function" name="gdk_set_sm_client_id ()" link="gdk-General.html#gdk-set-sm-client-id" deprecated="2.24: Use gdk_x11_set_sm_client_id() instead"/>
     <keyword type="function" name="gdk_exit ()" link="gdk-General.html#gdk-exit" deprecated=""/>
     <keyword type="function" name="gdk_notify_startup_complete ()" link="gdk-General.html#gdk-notify-startup-complete" since="2.2"/>
     <keyword type="function" name="gdk_notify_startup_complete_with_id ()" link="gdk-General.html#gdk-notify-startup-complete-with-id" since="2.12"/>
@@ -106,8 +106,8 @@
     <keyword type="function" name="gdk_display_set_double_click_distance ()" link="GdkDisplay.html#gdk-display-set-double-click-distance" since="2.4"/>
     <keyword type="function" name="gdk_display_get_pointer ()" link="GdkDisplay.html#gdk-display-get-pointer" since="2.2"/>
     <keyword type="function" name="gdk_display_get_window_at_pointer ()" link="GdkDisplay.html#gdk-display-get-window-at-pointer" since="2.2"/>
-    <keyword type="struct" name="GdkDisplayPointerHooks" link="GdkDisplay.html#GdkDisplayPointerHooks" since="2.2"/>
-    <keyword type="function" name="gdk_display_set_pointer_hooks ()" link="GdkDisplay.html#gdk-display-set-pointer-hooks" since="2.2"/>
+    <keyword type="struct" name="struct GdkDisplayPointerHooks" link="GdkDisplay.html#GdkDisplayPointerHooks" since="2.2"/>
+    <keyword type="function" name="gdk_display_set_pointer_hooks ()" link="GdkDisplay.html#gdk-display-set-pointer-hooks" deprecated="2.24: This function will go away in GTK 3 for lack of use cases." since="2.2"/>
     <keyword type="function" name="gdk_display_warp_pointer ()" link="GdkDisplay.html#gdk-display-warp-pointer" since="2.8"/>
     <keyword type="function" name="gdk_display_supports_cursor_color ()" link="GdkDisplay.html#gdk-display-supports-cursor-color" since="2.4"/>
     <keyword type="function" name="gdk_display_supports_cursor_alpha ()" link="GdkDisplay.html#gdk-display-supports-cursor-alpha" since="2.4"/>
@@ -167,16 +167,16 @@
     <keyword type="function" name="gdk_screen_set_resolution ()" link="GdkScreen.html#gdk-screen-set-resolution" since="2.10"/>
     <keyword type="function" name="gdk_screen_get_active_window ()" link="GdkScreen.html#gdk-screen-get-active-window" since="2.10"/>
     <keyword type="function" name="gdk_screen_get_window_stack ()" link="GdkScreen.html#gdk-screen-get-window-stack" since="2.10"/>
-    <keyword type="function" name="gdk_spawn_on_screen ()" link="GdkScreen.html#gdk-spawn-on-screen" since="2.4"/>
-    <keyword type="function" name="gdk_spawn_on_screen_with_pipes ()" link="GdkScreen.html#gdk-spawn-on-screen-with-pipes" since="2.4"/>
-    <keyword type="function" name="gdk_spawn_command_line_on_screen ()" link="GdkScreen.html#gdk-spawn-command-line-on-screen" since="2.4"/>
+    <keyword type="function" name="gdk_spawn_on_screen ()" link="GdkScreen.html#gdk-spawn-on-screen" deprecated="" since="2.4"/>
+    <keyword type="function" name="gdk_spawn_on_screen_with_pipes ()" link="GdkScreen.html#gdk-spawn-on-screen-with-pipes" deprecated="" since="2.4"/>
+    <keyword type="function" name="gdk_spawn_command_line_on_screen ()" link="GdkScreen.html#gdk-spawn-command-line-on-screen" deprecated="" since="2.4"/>
     <keyword type="property" name="The &quot;font-options&quot; property" link="GdkScreen.html#GdkScreen--font-options"/>
     <keyword type="property" name="The &quot;resolution&quot; property" link="GdkScreen.html#GdkScreen--resolution"/>
     <keyword type="signal" name="The &quot;composited-changed&quot; signal" link="GdkScreen.html#GdkScreen-composited-changed"/>
     <keyword type="signal" name="The &quot;monitors-changed&quot; signal" link="GdkScreen.html#GdkScreen-monitors-changed"/>
     <keyword type="signal" name="The &quot;size-changed&quot; signal" link="GdkScreen.html#GdkScreen-size-changed"/>
-    <keyword type="struct" name="GdkPoint" link="gdk-Points-Rectangles-and-Regions.html#GdkPoint"/>
-    <keyword type="struct" name="GdkRectangle" link="gdk-Points-Rectangles-and-Regions.html#GdkRectangle"/>
+    <keyword type="struct" name="struct GdkPoint" link="gdk-Points-Rectangles-and-Regions.html#GdkPoint"/>
+    <keyword type="struct" name="struct GdkRectangle" link="gdk-Points-Rectangles-and-Regions.html#GdkRectangle"/>
     <keyword type="function" name="gdk_rectangle_intersect ()" link="gdk-Points-Rectangles-and-Regions.html#gdk-rectangle-intersect"/>
     <keyword type="function" name="gdk_rectangle_union ()" link="gdk-Points-Rectangles-and-Regions.html#gdk-rectangle-union"/>
     <keyword type="struct" name="GdkRegion" link="gdk-Points-Rectangles-and-Regions.html#GdkRegion"/>
@@ -201,11 +201,11 @@
     <keyword type="function" name="gdk_region_union ()" link="gdk-Points-Rectangles-and-Regions.html#gdk-region-union"/>
     <keyword type="function" name="gdk_region_subtract ()" link="gdk-Points-Rectangles-and-Regions.html#gdk-region-subtract"/>
     <keyword type="function" name="gdk_region_xor ()" link="gdk-Points-Rectangles-and-Regions.html#gdk-region-xor"/>
-    <keyword type="struct" name="GdkSpan" link="gdk-Points-Rectangles-and-Regions.html#GdkSpan"/>
+    <keyword type="struct" name="struct GdkSpan" link="gdk-Points-Rectangles-and-Regions.html#GdkSpan"/>
     <keyword type="function" name="GdkSpanFunc ()" link="gdk-Points-Rectangles-and-Regions.html#GdkSpanFunc" deprecated=""/>
     <keyword type="function" name="gdk_region_spans_intersect_foreach ()" link="gdk-Points-Rectangles-and-Regions.html#gdk-region-spans-intersect-foreach" deprecated="2.22: There is no replacement."/>
     <keyword type="struct" name="GdkGC" link="gdk-Graphics-Contexts.html#GdkGC-struct"/>
-    <keyword type="struct" name="GdkGCValues" link="gdk-Graphics-Contexts.html#GdkGCValues"/>
+    <keyword type="struct" name="struct GdkGCValues" link="gdk-Graphics-Contexts.html#GdkGCValues"/>
     <keyword type="enum" name="enum GdkGCValuesMask" link="gdk-Graphics-Contexts.html#GdkGCValuesMask"/>
     <keyword type="enum" name="enum GdkFunction" link="gdk-Graphics-Contexts.html#GdkFunction"/>
     <keyword type="function" name="gdk_gc_new ()" link="gdk-Graphics-Contexts.html#gdk-gc-new" deprecated="2.22: Use Cairo for rendering."/>
@@ -248,13 +248,13 @@
     <keyword type="function" name="gdk_drawable_unref ()" link="gdk-Drawing-Primitives.html#gdk-drawable-unref" deprecated="2.0: Use g_object_unref() instead."/>
     <keyword type="function" name="gdk_drawable_set_data ()" link="gdk-Drawing-Primitives.html#gdk-drawable-set-data" deprecated=""/>
     <keyword type="function" name="gdk_drawable_get_data ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-data" deprecated=""/>
-    <keyword type="function" name="gdk_drawable_get_display ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-display" since="2.2"/>
-    <keyword type="function" name="gdk_drawable_get_screen ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-screen" since="2.2"/>
-    <keyword type="function" name="gdk_drawable_get_visual ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-visual"/>
+    <keyword type="function" name="gdk_drawable_get_display ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-display" deprecated="2.24: Use gdk_window_get_display() instead" since="2.2"/>
+    <keyword type="function" name="gdk_drawable_get_screen ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-screen" deprecated="2.24: Use gdk_window_get_screen() instead" since="2.2"/>
+    <keyword type="function" name="gdk_drawable_get_visual ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-visual" deprecated="2.24: Use gdk_window_get_visual()"/>
     <keyword type="function" name="gdk_drawable_set_colormap ()" link="gdk-Drawing-Primitives.html#gdk-drawable-set-colormap"/>
     <keyword type="function" name="gdk_drawable_get_colormap ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-colormap"/>
     <keyword type="function" name="gdk_drawable_get_depth ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-depth"/>
-    <keyword type="function" name="gdk_drawable_get_size ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-size"/>
+    <keyword type="function" name="gdk_drawable_get_size ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-size" deprecated=""/>
     <keyword type="function" name="gdk_drawable_get_clip_region ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-clip-region"/>
     <keyword type="function" name="gdk_drawable_get_visible_region ()" link="gdk-Drawing-Primitives.html#gdk-drawable-get-visible-region"/>
     <keyword type="function" name="gdk_draw_point ()" link="gdk-Drawing-Primitives.html#gdk-draw-point" deprecated=""/>
@@ -263,12 +263,12 @@
     <keyword type="function" name="gdk_draw_lines ()" link="gdk-Drawing-Primitives.html#gdk-draw-lines" deprecated=""/>
     <keyword type="function" name="gdk_draw_pixbuf ()" link="gdk-Drawing-Primitives.html#gdk-draw-pixbuf" deprecated="" since="2.2"/>
     <keyword type="function" name="gdk_draw_segments ()" link="gdk-Drawing-Primitives.html#gdk-draw-segments" deprecated=""/>
-    <keyword type="struct" name="GdkSegment" link="gdk-Drawing-Primitives.html#GdkSegment"/>
+    <keyword type="struct" name="struct GdkSegment" link="gdk-Drawing-Primitives.html#GdkSegment"/>
     <keyword type="function" name="gdk_draw_rectangle ()" link="gdk-Drawing-Primitives.html#gdk-draw-rectangle" deprecated=""/>
     <keyword type="function" name="gdk_draw_arc ()" link="gdk-Drawing-Primitives.html#gdk-draw-arc" deprecated=""/>
     <keyword type="function" name="gdk_draw_polygon ()" link="gdk-Drawing-Primitives.html#gdk-draw-polygon" deprecated=""/>
     <keyword type="function" name="gdk_draw_trapezoids ()" link="gdk-Drawing-Primitives.html#gdk-draw-trapezoids" deprecated="" since="2.6"/>
-    <keyword type="struct" name="GdkTrapezoid" link="gdk-Drawing-Primitives.html#GdkTrapezoid"/>
+    <keyword type="struct" name="struct GdkTrapezoid" link="gdk-Drawing-Primitives.html#GdkTrapezoid"/>
     <keyword type="function" name="gdk_draw_glyphs ()" link="gdk-Drawing-Primitives.html#gdk-draw-glyphs" deprecated="2.22: Use pango_cairo_show_glyphs() instead."/>
     <keyword type="function" name="gdk_draw_glyphs_transformed ()" link="gdk-Drawing-Primitives.html#gdk-draw-glyphs-transformed" deprecated="2.22: Use pango_cairo_show_glyphs() instead." since="2.6"/>
     <keyword type="function" name="gdk_draw_layout_line ()" link="gdk-Drawing-Primitives.html#gdk-draw-layout-line" deprecated=""/>
@@ -291,6 +291,7 @@
     <keyword type="function" name="gdk_pixmap_colormap_create_from_xpm ()" link="gdk-Bitmaps-and-Pixmaps.html#gdk-pixmap-colormap-create-from-xpm" deprecated=""/>
     <keyword type="function" name="gdk_pixmap_create_from_xpm_d ()" link="gdk-Bitmaps-and-Pixmaps.html#gdk-pixmap-create-from-xpm-d" deprecated=""/>
     <keyword type="function" name="gdk_pixmap_colormap_create_from_xpm_d ()" link="gdk-Bitmaps-and-Pixmaps.html#gdk-pixmap-colormap-create-from-xpm-d" deprecated=""/>
+    <keyword type="function" name="gdk_pixmap_get_size ()" link="gdk-Bitmaps-and-Pixmaps.html#gdk-pixmap-get-size" since="2.24"/>
     <keyword type="macro" name="gdk_pixmap_ref" link="gdk-Bitmaps-and-Pixmaps.html#gdk-pixmap-ref" deprecated=""/>
     <keyword type="macro" name="gdk_pixmap_unref" link="gdk-Bitmaps-and-Pixmaps.html#gdk-pixmap-unref" deprecated=""/>
     <keyword type="typedef" name="GdkBitmap" link="gdk-Bitmaps-and-Pixmaps.html#GdkBitmap"/>
@@ -306,7 +307,7 @@
     <keyword type="enum" name="enum GdkRgbDither" link="gdk-GdkRGB.html#GdkRgbDither"/>
     <keyword type="function" name="gdk_rgb_cmap_new ()" link="gdk-GdkRGB.html#gdk-rgb-cmap-new" deprecated=""/>
     <keyword type="function" name="gdk_rgb_cmap_free ()" link="gdk-GdkRGB.html#gdk-rgb-cmap-free" deprecated=""/>
-    <keyword type="struct" name="GdkRgbCmap" link="gdk-GdkRGB.html#GdkRgbCmap" deprecated=""/>
+    <keyword type="struct" name="struct GdkRgbCmap" link="gdk-GdkRGB.html#GdkRgbCmap" deprecated=""/>
     <keyword type="function" name="gdk_rgb_gc_set_foreground ()" link="gdk-GdkRGB.html#gdk-rgb-gc-set-foreground" deprecated=""/>
     <keyword type="function" name="gdk_rgb_gc_set_background ()" link="gdk-GdkRGB.html#gdk-rgb-gc-set-background" deprecated=""/>
     <keyword type="function" name="gdk_rgb_xpixel_from_rgb ()" link="gdk-GdkRGB.html#gdk-rgb-xpixel-from-rgb" deprecated=""/>
@@ -448,16 +449,21 @@
     <keyword type="enum" name="enum GdkWindowType" link="gdk-Windows.html#GdkWindowType"/>
     <keyword type="enum" name="enum GdkWindowClass" link="gdk-Windows.html#GdkWindowClass"/>
     <keyword type="enum" name="enum GdkWindowHints" link="gdk-Windows.html#GdkWindowHints"/>
-    <keyword type="struct" name="GdkGeometry" link="gdk-Windows.html#GdkGeometry"/>
+    <keyword type="struct" name="struct GdkGeometry" link="gdk-Windows.html#GdkGeometry"/>
     <keyword type="enum" name="enum GdkGravity" link="gdk-Windows.html#GdkGravity"/>
     <keyword type="enum" name="enum GdkWindowEdge" link="gdk-Windows.html#GdkWindowEdge"/>
     <keyword type="enum" name="enum GdkWindowTypeHint" link="gdk-Windows.html#GdkWindowTypeHint"/>
-    <keyword type="struct" name="GdkWindowAttr" link="gdk-Windows.html#GdkWindowAttr"/>
+    <keyword type="struct" name="struct GdkWindowAttr" link="gdk-Windows.html#GdkWindowAttr"/>
     <keyword type="enum" name="enum GdkWindowAttributesType" link="gdk-Windows.html#GdkWindowAttributesType"/>
     <keyword type="function" name="gdk_window_new ()" link="gdk-Windows.html#gdk-window-new"/>
     <keyword type="function" name="gdk_window_destroy ()" link="gdk-Windows.html#gdk-window-destroy"/>
     <keyword type="macro" name="gdk_window_ref" link="gdk-Windows.html#gdk-window-ref" deprecated=""/>
     <keyword type="macro" name="gdk_window_unref" link="gdk-Windows.html#gdk-window-unref" deprecated=""/>
+    <keyword type="function" name="gdk_window_get_display ()" link="gdk-Windows.html#gdk-window-get-display" since="2.24"/>
+    <keyword type="function" name="gdk_window_get_screen ()" link="gdk-Windows.html#gdk-window-get-screen"/>
+    <keyword type="function" name="gdk_window_get_visual ()" link="gdk-Windows.html#gdk-window-get-visual" since="2.24"/>
+    <keyword type="function" name="gdk_window_get_width ()" link="gdk-Windows.html#gdk-window-get-width" since="2.24"/>
+    <keyword type="function" name="gdk_window_get_height ()" link="gdk-Windows.html#gdk-window-get-height" since="2.24"/>
     <keyword type="function" name="gdk_window_get_window_type ()" link="gdk-Windows.html#gdk-window-get-window-type"/>
     <keyword type="function" name="gdk_window_at_pointer ()" link="gdk-Windows.html#gdk-window-at-pointer"/>
     <keyword type="function" name="gdk_window_show ()" link="gdk-Windows.html#gdk-window-show"/>
@@ -564,7 +570,6 @@
     <keyword type="function" name="gdk_window_get_root_origin ()" link="gdk-Windows.html#gdk-window-get-root-origin"/>
     <keyword type="function" name="gdk_window_get_frame_extents ()" link="gdk-Windows.html#gdk-window-get-frame-extents"/>
     <keyword type="macro" name="gdk_window_get_size" link="gdk-Windows.html#gdk-window-get-size" deprecated=""/>
-    <keyword type="macro" name="gdk_window_get_visual" link="gdk-Windows.html#gdk-window-get-visual" deprecated=""/>
     <keyword type="macro" name="gdk_window_get_colormap" link="gdk-Windows.html#gdk-window-get-colormap" deprecated=""/>
     <keyword type="macro" name="gdk_window_get_type" link="gdk-Windows.html#gdk-window-get-type" deprecated=""/>
     <keyword type="function" name="gdk_window_get_origin ()" link="gdk-Windows.html#gdk-window-get-origin"/>
@@ -596,8 +601,8 @@
     <keyword type="enum" name="enum GdkWMFunction" link="gdk-Windows.html#GdkWMFunction"/>
     <keyword type="function" name="gdk_window_get_toplevels ()" link="gdk-Windows.html#gdk-window-get-toplevels" deprecated="2.16: Use gdk_screen_get_toplevel_windows() instead."/>
     <keyword type="function" name="gdk_get_default_root_window ()" link="gdk-Windows.html#gdk-get-default-root-window"/>
-    <keyword type="struct" name="GdkPointerHooks" link="gdk-Windows.html#GdkPointerHooks"/>
-    <keyword type="function" name="gdk_set_pointer_hooks ()" link="gdk-Windows.html#gdk-set-pointer-hooks"/>
+    <keyword type="struct" name="struct GdkPointerHooks" link="gdk-Windows.html#GdkPointerHooks"/>
+    <keyword type="function" name="gdk_set_pointer_hooks ()" link="gdk-Windows.html#gdk-set-pointer-hooks" deprecated="2.24: This function will go away in GTK 3 for lack of use cases."/>
     <keyword type="function" name="gdk_offscreen_window_get_pixmap ()" link="gdk-Windows.html#gdk-offscreen-window-get-pixmap" since="2.18"/>
     <keyword type="function" name="gdk_offscreen_window_set_embedder ()" link="gdk-Windows.html#gdk-offscreen-window-set-embedder" since="2.18"/>
     <keyword type="function" name="gdk_offscreen_window_get_embedder ()" link="gdk-Windows.html#gdk-offscreen-window-get-embedder" since="2.18"/>
@@ -639,27 +644,27 @@
     <keyword type="function" name="gdk_event_get_screen ()" link="gdk-Events.html#gdk-event-get-screen" since="2.2"/>
     <keyword type="function" name="gdk_setting_get ()" link="gdk-Events.html#gdk-setting-get"/>
     <keyword type="union" name="union GdkEvent" link="gdk-Event-Structures.html#GdkEvent"/>
-    <keyword type="struct" name="GdkEventAny" link="gdk-Event-Structures.html#GdkEventAny"/>
-    <keyword type="struct" name="GdkEventKey" link="gdk-Event-Structures.html#GdkEventKey"/>
-    <keyword type="struct" name="GdkEventButton" link="gdk-Event-Structures.html#GdkEventButton"/>
-    <keyword type="struct" name="GdkEventScroll" link="gdk-Event-Structures.html#GdkEventScroll"/>
-    <keyword type="struct" name="GdkEventMotion" link="gdk-Event-Structures.html#GdkEventMotion"/>
-    <keyword type="struct" name="GdkEventExpose" link="gdk-Event-Structures.html#GdkEventExpose"/>
-    <keyword type="struct" name="GdkEventVisibility" link="gdk-Event-Structures.html#GdkEventVisibility"/>
-    <keyword type="struct" name="GdkEventCrossing" link="gdk-Event-Structures.html#GdkEventCrossing"/>
-    <keyword type="struct" name="GdkEventFocus" link="gdk-Event-Structures.html#GdkEventFocus"/>
-    <keyword type="struct" name="GdkEventConfigure" link="gdk-Event-Structures.html#GdkEventConfigure"/>
-    <keyword type="struct" name="GdkEventProperty" link="gdk-Event-Structures.html#GdkEventProperty"/>
-    <keyword type="struct" name="GdkEventSelection" link="gdk-Event-Structures.html#GdkEventSelection"/>
+    <keyword type="struct" name="struct GdkEventAny" link="gdk-Event-Structures.html#GdkEventAny"/>
+    <keyword type="struct" name="struct GdkEventKey" link="gdk-Event-Structures.html#GdkEventKey"/>
+    <keyword type="struct" name="struct GdkEventButton" link="gdk-Event-Structures.html#GdkEventButton"/>
+    <keyword type="struct" name="struct GdkEventScroll" link="gdk-Event-Structures.html#GdkEventScroll"/>
+    <keyword type="struct" name="struct GdkEventMotion" link="gdk-Event-Structures.html#GdkEventMotion"/>
+    <keyword type="struct" name="struct GdkEventExpose" link="gdk-Event-Structures.html#GdkEventExpose"/>
+    <keyword type="struct" name="struct GdkEventVisibility" link="gdk-Event-Structures.html#GdkEventVisibility"/>
+    <keyword type="struct" name="struct GdkEventCrossing" link="gdk-Event-Structures.html#GdkEventCrossing"/>
+    <keyword type="struct" name="struct GdkEventFocus" link="gdk-Event-Structures.html#GdkEventFocus"/>
+    <keyword type="struct" name="struct GdkEventConfigure" link="gdk-Event-Structures.html#GdkEventConfigure"/>
+    <keyword type="struct" name="struct GdkEventProperty" link="gdk-Event-Structures.html#GdkEventProperty"/>
+    <keyword type="struct" name="struct GdkEventSelection" link="gdk-Event-Structures.html#GdkEventSelection"/>
     <keyword type="typedef" name="GdkNativeWindow" link="gdk-Event-Structures.html#GdkNativeWindow"/>
-    <keyword type="struct" name="GdkEventDND" link="gdk-Event-Structures.html#GdkEventDND"/>
-    <keyword type="struct" name="GdkEventProximity" link="gdk-Event-Structures.html#GdkEventProximity"/>
-    <keyword type="struct" name="GdkEventClient" link="gdk-Event-Structures.html#GdkEventClient"/>
-    <keyword type="struct" name="GdkEventNoExpose" link="gdk-Event-Structures.html#GdkEventNoExpose"/>
-    <keyword type="struct" name="GdkEventWindowState" link="gdk-Event-Structures.html#GdkEventWindowState"/>
-    <keyword type="struct" name="GdkEventSetting" link="gdk-Event-Structures.html#GdkEventSetting"/>
-    <keyword type="struct" name="GdkEventOwnerChange" link="gdk-Event-Structures.html#GdkEventOwnerChange" since="2.6"/>
-    <keyword type="struct" name="GdkEventGrabBroken" link="gdk-Event-Structures.html#GdkEventGrabBroken" since="2.8"/>
+    <keyword type="struct" name="struct GdkEventDND" link="gdk-Event-Structures.html#GdkEventDND"/>
+    <keyword type="struct" name="struct GdkEventProximity" link="gdk-Event-Structures.html#GdkEventProximity"/>
+    <keyword type="struct" name="struct GdkEventClient" link="gdk-Event-Structures.html#GdkEventClient"/>
+    <keyword type="struct" name="struct GdkEventNoExpose" link="gdk-Event-Structures.html#GdkEventNoExpose"/>
+    <keyword type="struct" name="struct GdkEventWindowState" link="gdk-Event-Structures.html#GdkEventWindowState"/>
+    <keyword type="struct" name="struct GdkEventSetting" link="gdk-Event-Structures.html#GdkEventSetting"/>
+    <keyword type="struct" name="struct GdkEventOwnerChange" link="gdk-Event-Structures.html#GdkEventOwnerChange" since="2.6"/>
+    <keyword type="struct" name="struct GdkEventGrabBroken" link="gdk-Event-Structures.html#GdkEventGrabBroken" since="2.8"/>
     <keyword type="enum" name="enum GdkScrollDirection" link="gdk-Event-Structures.html#GdkScrollDirection"/>
     <keyword type="enum" name="enum GdkVisibilityState" link="gdk-Event-Structures.html#GdkVisibilityState"/>
     <keyword type="enum" name="enum GdkCrossingMode" link="gdk-Event-Structures.html#GdkCrossingMode"/>
@@ -668,8 +673,8 @@
     <keyword type="enum" name="enum GdkWindowState" link="gdk-Event-Structures.html#GdkWindowState"/>
     <keyword type="enum" name="enum GdkSettingAction" link="gdk-Event-Structures.html#GdkSettingAction"/>
     <keyword type="enum" name="enum GdkOwnerChange" link="gdk-Event-Structures.html#GdkOwnerChange"/>
-    <keyword type="struct" name="GdkKeymap" link="gdk-Keyboard-Handling.html#GdkKeymap-struct"/>
-    <keyword type="struct" name="GdkKeymapKey" link="gdk-Keyboard-Handling.html#GdkKeymapKey"/>
+    <keyword type="struct" name="struct GdkKeymap" link="gdk-Keyboard-Handling.html#GdkKeymap-struct"/>
+    <keyword type="struct" name="struct GdkKeymapKey" link="gdk-Keyboard-Handling.html#GdkKeymapKey"/>
     <keyword type="function" name="gdk_keymap_get_default ()" link="gdk-Keyboard-Handling.html#gdk-keymap-get-default"/>
     <keyword type="function" name="gdk_keymap_get_for_display ()" link="gdk-Keyboard-Handling.html#gdk-keymap-get-for-display" since="2.2"/>
     <keyword type="function" name="gdk_keymap_lookup_key ()" link="gdk-Keyboard-Handling.html#gdk-keymap-lookup-key"/>
@@ -723,9 +728,9 @@
     <keyword type="function" name="gdk_drag_get_selection ()" link="gdk-Drag-and-Drop.html#gdk-drag-get-selection"/>
     <keyword type="function" name="gdk_drag_abort ()" link="gdk-Drag-and-Drop.html#gdk-drag-abort"/>
     <keyword type="function" name="gdk_drop_reply ()" link="gdk-Drag-and-Drop.html#gdk-drop-reply"/>
-    <keyword type="function" name="gdk_drag_context_new ()" link="gdk-Drag-and-Drop.html#gdk-drag-context-new"/>
+    <keyword type="function" name="gdk_drag_context_new ()" link="gdk-Drag-and-Drop.html#gdk-drag-context-new" deprecated=""/>
     <keyword type="function" name="gdk_drag_drop ()" link="gdk-Drag-and-Drop.html#gdk-drag-drop"/>
-    <keyword type="function" name="gdk_drag_find_window ()" link="gdk-Drag-and-Drop.html#gdk-drag-find-window"/>
+    <keyword type="function" name="gdk_drag_find_window ()" link="gdk-Drag-and-Drop.html#gdk-drag-find-window" deprecated="2.24: Use gdk_drag_find_window_for_screen() instead."/>
     <keyword type="function" name="gdk_drag_find_window_for_screen ()" link="gdk-Drag-and-Drop.html#gdk-drag-find-window-for-screen" since="2.2"/>
     <keyword type="function" name="gdk_drag_context_ref ()" link="gdk-Drag-and-Drop.html#gdk-drag-context-ref" deprecated="2.2: Use g_object_ref() instead."/>
     <keyword type="function" name="gdk_drag_context_get_actions ()" link="gdk-Drag-and-Drop.html#gdk-drag-context-get-actions" since="2.22"/>
@@ -736,11 +741,11 @@
     <keyword type="function" name="gdk_drag_begin ()" link="gdk-Drag-and-Drop.html#gdk-drag-begin"/>
     <keyword type="function" name="gdk_drag_motion ()" link="gdk-Drag-and-Drop.html#gdk-drag-motion"/>
     <keyword type="function" name="gdk_drop_finish ()" link="gdk-Drag-and-Drop.html#gdk-drop-finish"/>
-    <keyword type="function" name="gdk_drag_get_protocol ()" link="gdk-Drag-and-Drop.html#gdk-drag-get-protocol"/>
+    <keyword type="function" name="gdk_drag_get_protocol ()" link="gdk-Drag-and-Drop.html#gdk-drag-get-protocol" deprecated="2.24: Use gdk_drag_get_protocol_for_display() instead"/>
     <keyword type="function" name="gdk_drag_get_protocol_for_display ()" link="gdk-Drag-and-Drop.html#gdk-drag-get-protocol-for-display" since="2.2"/>
     <keyword type="enum" name="enum GdkDragProtocol" link="gdk-Drag-and-Drop.html#GdkDragProtocol"/>
     <keyword type="function" name="gdk_drag_context_unref ()" link="gdk-Drag-and-Drop.html#gdk-drag-context-unref" deprecated="2.2: Use g_object_unref() instead."/>
-    <keyword type="struct" name="GdkDragContext" link="gdk-Drag-and-Drop.html#GdkDragContext"/>
+    <keyword type="struct" name="struct GdkDragContext" link="gdk-Drag-and-Drop.html#GdkDragContext"/>
     <keyword type="enum" name="enum GdkDragAction" link="gdk-Drag-and-Drop.html#GdkDragAction"/>
     <keyword type="function" name="gdk_drag_status ()" link="gdk-Drag-and-Drop.html#gdk-drag-status"/>
     <keyword type="function" name="gdk_drag_drop_succeeded ()" link="gdk-Drag-and-Drop.html#gdk-drag-drop-succeeded" since="2.6"/>
@@ -748,17 +753,17 @@
     <keyword type="macro" name="GDK_ATOM_TO_POINTER()" link="gdk-Properties-and-Atoms.html#GDK-ATOM-TO-POINTER:CAPS"/>
     <keyword type="macro" name="GDK_POINTER_TO_ATOM()" link="gdk-Properties-and-Atoms.html#GDK-POINTER-TO-ATOM:CAPS"/>
     <keyword type="macro" name="GDK_NONE" link="gdk-Properties-and-Atoms.html#GDK-NONE:CAPS"/>
-    <keyword type="function" name="gdk_text_property_to_text_list ()" link="gdk-Properties-and-Atoms.html#gdk-text-property-to-text-list"/>
-    <keyword type="function" name="gdk_text_property_to_text_list_for_display ()" link="gdk-Properties-and-Atoms.html#gdk-text-property-to-text-list-for-display" since="2.2"/>
-    <keyword type="function" name="gdk_free_text_list ()" link="gdk-Properties-and-Atoms.html#gdk-free-text-list"/>
-    <keyword type="function" name="gdk_text_property_to_utf8_list ()" link="gdk-Properties-and-Atoms.html#gdk-text-property-to-utf8-list"/>
+    <keyword type="function" name="gdk_text_property_to_text_list ()" link="gdk-Properties-and-Atoms.html#gdk-text-property-to-text-list" deprecated=""/>
+    <keyword type="function" name="gdk_text_property_to_text_list_for_display ()" link="gdk-Properties-and-Atoms.html#gdk-text-property-to-text-list-for-display" deprecated="2.24: Use gdk_x11_display_text_property_to_text_list()" since="2.2"/>
+    <keyword type="function" name="gdk_free_text_list ()" link="gdk-Properties-and-Atoms.html#gdk-free-text-list" deprecated=""/>
+    <keyword type="function" name="gdk_text_property_to_utf8_list ()" link="gdk-Properties-and-Atoms.html#gdk-text-property-to-utf8-list" deprecated=""/>
     <keyword type="function" name="gdk_text_property_to_utf8_list_for_display ()" link="gdk-Properties-and-Atoms.html#gdk-text-property-to-utf8-list-for-display" since="2.2"/>
-    <keyword type="function" name="gdk_string_to_compound_text ()" link="gdk-Properties-and-Atoms.html#gdk-string-to-compound-text"/>
-    <keyword type="function" name="gdk_string_to_compound_text_for_display ()" link="gdk-Properties-and-Atoms.html#gdk-string-to-compound-text-for-display" since="2.2"/>
-    <keyword type="function" name="gdk_free_compound_text ()" link="gdk-Properties-and-Atoms.html#gdk-free-compound-text"/>
+    <keyword type="function" name="gdk_string_to_compound_text ()" link="gdk-Properties-and-Atoms.html#gdk-string-to-compound-text" deprecated=""/>
+    <keyword type="function" name="gdk_string_to_compound_text_for_display ()" link="gdk-Properties-and-Atoms.html#gdk-string-to-compound-text-for-display" deprecated="2.24: Use gdk_x11_display_string_to_compound_text()" since="2.2"/>
+    <keyword type="function" name="gdk_free_compound_text ()" link="gdk-Properties-and-Atoms.html#gdk-free-compound-text" deprecated=""/>
     <keyword type="function" name="gdk_utf8_to_string_target ()" link="gdk-Properties-and-Atoms.html#gdk-utf8-to-string-target"/>
-    <keyword type="function" name="gdk_utf8_to_compound_text ()" link="gdk-Properties-and-Atoms.html#gdk-utf8-to-compound-text"/>
-    <keyword type="function" name="gdk_utf8_to_compound_text_for_display ()" link="gdk-Properties-and-Atoms.html#gdk-utf8-to-compound-text-for-display" since="2.2"/>
+    <keyword type="function" name="gdk_utf8_to_compound_text ()" link="gdk-Properties-and-Atoms.html#gdk-utf8-to-compound-text" deprecated=""/>
+    <keyword type="function" name="gdk_utf8_to_compound_text_for_display ()" link="gdk-Properties-and-Atoms.html#gdk-utf8-to-compound-text-for-display" deprecated="2.24: Use gdk_x11_display_utf8_to_compound_text()" since="2.2"/>
     <keyword type="function" name="gdk_atom_intern ()" link="gdk-Properties-and-Atoms.html#gdk-atom-intern"/>
     <keyword type="function" name="gdk_atom_intern_static_string ()" link="gdk-Properties-and-Atoms.html#gdk-atom-intern-static-string" since="2.10"/>
     <keyword type="function" name="gdk_atom_name ()" link="gdk-Properties-and-Atoms.html#gdk-atom-name"/>
@@ -785,11 +790,11 @@
     <keyword type="function" name="GdkDestroyNotify ()" link="gdk-Input.html#GdkDestroyNotify" deprecated=""/>
     <keyword type="function" name="gdk_input_add ()" link="gdk-Input.html#gdk-input-add" deprecated="2.14: Use g_io_add_watch() on a #GIOChannel"/>
     <keyword type="function" name="gdk_input_remove ()" link="gdk-Input.html#gdk-input-remove" deprecated=""/>
-    <keyword type="struct" name="GdkDevice" link="gdk-Input-Devices.html#GdkDevice"/>
+    <keyword type="struct" name="struct GdkDevice" link="gdk-Input-Devices.html#GdkDevice"/>
     <keyword type="enum" name="enum GdkInputSource" link="gdk-Input-Devices.html#GdkInputSource"/>
     <keyword type="enum" name="enum GdkInputMode" link="gdk-Input-Devices.html#GdkInputMode"/>
-    <keyword type="struct" name="GdkDeviceKey" link="gdk-Input-Devices.html#GdkDeviceKey"/>
-    <keyword type="struct" name="GdkDeviceAxis" link="gdk-Input-Devices.html#GdkDeviceAxis"/>
+    <keyword type="struct" name="struct GdkDeviceKey" link="gdk-Input-Devices.html#GdkDeviceKey"/>
+    <keyword type="struct" name="struct GdkDeviceAxis" link="gdk-Input-Devices.html#GdkDeviceAxis"/>
     <keyword type="enum" name="enum GdkAxisUse" link="gdk-Input-Devices.html#GdkAxisUse"/>
     <keyword type="function" name="gdk_devices_list ()" link="gdk-Input-Devices.html#gdk-devices-list"/>
     <keyword type="function" name="gdk_device_get_name ()" link="gdk-Input-Devices.html#gdk-device-get-name" since="2.22"/>
@@ -805,13 +810,13 @@
     <keyword type="function" name="gdk_device_get_state ()" link="gdk-Input-Devices.html#gdk-device-get-state"/>
     <keyword type="function" name="gdk_device_get_history ()" link="gdk-Input-Devices.html#gdk-device-get-history"/>
     <keyword type="function" name="gdk_device_free_history ()" link="gdk-Input-Devices.html#gdk-device-free-history"/>
-    <keyword type="struct" name="GdkTimeCoord" link="gdk-Input-Devices.html#GdkTimeCoord"/>
+    <keyword type="struct" name="struct GdkTimeCoord" link="gdk-Input-Devices.html#GdkTimeCoord"/>
     <keyword type="function" name="gdk_device_get_axis ()" link="gdk-Input-Devices.html#gdk-device-get-axis"/>
     <keyword type="function" name="gdk_device_get_n_axes ()" link="gdk-Input-Devices.html#gdk-device-get-n-axes" since="2.22"/>
     <keyword type="function" name="gdk_input_set_extension_events ()" link="gdk-Input-Devices.html#gdk-input-set-extension-events"/>
     <keyword type="enum" name="enum GdkExtensionMode" link="gdk-Input-Devices.html#GdkExtensionMode"/>
-    <keyword type="struct" name="GdkPangoRenderer" link="gdk-Pango-Interaction.html#GdkPangoRenderer-struct"/>
-    <keyword type="struct" name="GdkPangoRendererClass" link="gdk-Pango-Interaction.html#GdkPangoRendererClass" since="2.6"/>
+    <keyword type="struct" name="struct GdkPangoRenderer" link="gdk-Pango-Interaction.html#GdkPangoRenderer-struct"/>
+    <keyword type="struct" name="struct GdkPangoRendererClass" link="gdk-Pango-Interaction.html#GdkPangoRendererClass" since="2.6"/>
     <keyword type="function" name="gdk_pango_renderer_new ()" link="gdk-Pango-Interaction.html#gdk-pango-renderer-new" since="2.6"/>
     <keyword type="function" name="gdk_pango_renderer_get_default ()" link="gdk-Pango-Interaction.html#gdk-pango-renderer-get-default" since="2.6"/>
     <keyword type="function" name="gdk_pango_renderer_set_drawable ()" link="gdk-Pango-Interaction.html#gdk-pango-renderer-set-drawable" since="2.6"/>
@@ -821,9 +826,9 @@
     <keyword type="function" name="gdk_pango_context_get ()" link="gdk-Pango-Interaction.html#gdk-pango-context-get"/>
     <keyword type="function" name="gdk_pango_context_get_for_screen ()" link="gdk-Pango-Interaction.html#gdk-pango-context-get-for-screen" since="2.2"/>
     <keyword type="function" name="gdk_pango_context_set_colormap ()" link="gdk-Pango-Interaction.html#gdk-pango-context-set-colormap" deprecated=""/>
-    <keyword type="struct" name="GdkPangoAttrEmbossed" link="gdk-Pango-Interaction.html#GdkPangoAttrEmbossed"/>
-    <keyword type="struct" name="GdkPangoAttrEmbossColor" link="gdk-Pango-Interaction.html#GdkPangoAttrEmbossColor"/>
-    <keyword type="struct" name="GdkPangoAttrStipple" link="gdk-Pango-Interaction.html#GdkPangoAttrStipple"/>
+    <keyword type="struct" name="struct GdkPangoAttrEmbossed" link="gdk-Pango-Interaction.html#GdkPangoAttrEmbossed"/>
+    <keyword type="struct" name="struct GdkPangoAttrEmbossColor" link="gdk-Pango-Interaction.html#GdkPangoAttrEmbossColor"/>
+    <keyword type="struct" name="struct GdkPangoAttrStipple" link="gdk-Pango-Interaction.html#GdkPangoAttrStipple"/>
     <keyword type="function" name="gdk_pango_attr_emboss_color_new ()" link="gdk-Pango-Interaction.html#gdk-pango-attr-emboss-color-new" since="2.12"/>
     <keyword type="function" name="gdk_pango_attr_embossed_new ()" link="gdk-Pango-Interaction.html#gdk-pango-attr-embossed-new"/>
     <keyword type="function" name="gdk_pango_attr_stipple_new ()" link="gdk-Pango-Interaction.html#gdk-pango-attr-stipple-new"/>
@@ -834,13 +839,14 @@
     <keyword type="function" name="gdk_cairo_create ()" link="gdk-Cairo-Interaction.html#gdk-cairo-create" since="2.8"/>
     <keyword type="function" name="gdk_cairo_set_source_color ()" link="gdk-Cairo-Interaction.html#gdk-cairo-set-source-color" since="2.8"/>
     <keyword type="function" name="gdk_cairo_set_source_pixbuf ()" link="gdk-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf" since="2.8"/>
-    <keyword type="function" name="gdk_cairo_set_source_pixmap ()" link="gdk-Cairo-Interaction.html#gdk-cairo-set-source-pixmap" since="2.10"/>
+    <keyword type="function" name="gdk_cairo_set_source_pixmap ()" link="gdk-Cairo-Interaction.html#gdk-cairo-set-source-pixmap" deprecated="" since="2.10"/>
+    <keyword type="function" name="gdk_cairo_set_source_window ()" link="gdk-Cairo-Interaction.html#gdk-cairo-set-source-window" since="2.24"/>
     <keyword type="function" name="gdk_cairo_rectangle ()" link="gdk-Cairo-Interaction.html#gdk-cairo-rectangle" since="2.8"/>
     <keyword type="function" name="gdk_cairo_region ()" link="gdk-Cairo-Interaction.html#gdk-cairo-region" since="2.8"/>
     <keyword type="function" name="gdk_cairo_reset_clip ()" link="gdk-Cairo-Interaction.html#gdk-cairo-reset-clip" since="2.18"/>
     <keyword type="macro" name="GDK_ROOT_WINDOW" link="gdk-X-Window-System-Interaction.html#GDK-ROOT-WINDOW:CAPS"/>
     <keyword type="macro" name="GDK_ROOT_PARENT" link="gdk-X-Window-System-Interaction.html#GDK-ROOT-PARENT:CAPS" deprecated=""/>
-    <keyword type="macro" name="GDK_DISPLAY" link="gdk-X-Window-System-Interaction.html#GDK-DISPLAY:CAPS" deprecated="2.22: Use gdk_display_get_default ()"/>
+    <keyword type="macro" name="GDK_DISPLAY" link="gdk-X-Window-System-Interaction.html#GDK-DISPLAY:CAPS" deprecated="2.22: Use gdk_display_get_default() to get the default #GdkDisplay or gdk_x11_get_default_xdisplay() to get the corresponding Xlib Display *"/>
     <keyword type="macro" name="GDK_WINDOW_XDISPLAY()" link="gdk-X-Window-System-Interaction.html#GDK-WINDOW-XDISPLAY:CAPS"/>
     <keyword type="macro" name="GDK_WINDOW_XID()" link="gdk-X-Window-System-Interaction.html#GDK-WINDOW-XID:CAPS"/>
     <keyword type="macro" name="GDK_PIXMAP_XDISPLAY()" link="gdk-X-Window-System-Interaction.html#GDK-PIXMAP-XDISPLAY:CAPS"/>
@@ -864,24 +870,24 @@
     <keyword type="macro" name="GDK_GC_XGC()" link="gdk-X-Window-System-Interaction.html#GDK-GC-XGC:CAPS"/>
     <keyword type="macro" name="GDK_GC_GET_XGC()" link="gdk-X-Window-System-Interaction.html#GDK-GC-GET-XGC:CAPS"/>
     <keyword type="macro" name="GDK_WINDOW_XWINDOW" link="gdk-X-Window-System-Interaction.html#GDK-WINDOW-XWINDOW:CAPS"/>
-    <keyword type="function" name="gdkx_visual_get ()" link="gdk-X-Window-System-Interaction.html#gdkx-visual-get"/>
+    <keyword type="function" name="gdkx_visual_get ()" link="gdk-X-Window-System-Interaction.html#gdkx-visual-get" deprecated="2.24: Use gdk_x11_screen_lookup_visual() instead"/>
     <keyword type="function" name="gdkx_colormap_get ()" link="gdk-X-Window-System-Interaction.html#gdkx-colormap-get" deprecated=""/>
     <keyword type="function" name="gdk_pixmap_foreign_new ()" link="gdk-X-Window-System-Interaction.html#gdk-pixmap-foreign-new"/>
     <keyword type="function" name="gdk_pixmap_foreign_new_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-pixmap-foreign-new-for-display" since="2.2"/>
     <keyword type="function" name="gdk_pixmap_foreign_new_for_screen ()" link="gdk-X-Window-System-Interaction.html#gdk-pixmap-foreign-new-for-screen" since="2.10"/>
-    <keyword type="function" name="gdk_window_foreign_new ()" link="gdk-X-Window-System-Interaction.html#gdk-window-foreign-new"/>
-    <keyword type="function" name="gdk_window_foreign_new_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-window-foreign-new-for-display" since="2.2"/>
-    <keyword type="function" name="gdk_xid_table_lookup ()" link="gdk-X-Window-System-Interaction.html#gdk-xid-table-lookup"/>
-    <keyword type="function" name="gdk_xid_table_lookup_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-xid-table-lookup-for-display" since="2.2"/>
-    <keyword type="function" name="gdk_window_lookup ()" link="gdk-X-Window-System-Interaction.html#gdk-window-lookup"/>
-    <keyword type="function" name="gdk_window_lookup_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-window-lookup-for-display" since="2.2"/>
+    <keyword type="function" name="gdk_window_foreign_new ()" link="gdk-X-Window-System-Interaction.html#gdk-window-foreign-new" deprecated=""/>
+    <keyword type="function" name="gdk_window_foreign_new_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-window-foreign-new-for-display" deprecated="" since="2.2"/>
+    <keyword type="function" name="gdk_xid_table_lookup ()" link="gdk-X-Window-System-Interaction.html#gdk-xid-table-lookup" deprecated=""/>
+    <keyword type="function" name="gdk_xid_table_lookup_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-xid-table-lookup-for-display" deprecated="" since="2.2"/>
+    <keyword type="function" name="gdk_window_lookup ()" link="gdk-X-Window-System-Interaction.html#gdk-window-lookup" deprecated=""/>
+    <keyword type="function" name="gdk_window_lookup_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-window-lookup-for-display" deprecated="2.24: Use gdk_x11_window_lookup_for_display() instead" since="2.2"/>
     <keyword type="function" name="gdk_pixmap_lookup ()" link="gdk-X-Window-System-Interaction.html#gdk-pixmap-lookup"/>
     <keyword type="function" name="gdk_pixmap_lookup_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-pixmap-lookup-for-display" since="2.2"/>
     <keyword type="macro" name="gdk_font_lookup()" link="gdk-X-Window-System-Interaction.html#gdk-font-lookup" deprecated=""/>
     <keyword type="macro" name="gdk_font_lookup_for_display()" link="gdk-X-Window-System-Interaction.html#gdk-font-lookup-for-display" deprecated=""/>
     <keyword type="function" name="gdk_x11_lookup_xdisplay ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-lookup-xdisplay" since="2.2"/>
     <keyword type="function" name="gdk_x11_get_server_time ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-get-server-time"/>
-    <keyword type="function" name="gdk_net_wm_supports ()" link="gdk-X-Window-System-Interaction.html#gdk-net-wm-supports"/>
+    <keyword type="function" name="gdk_net_wm_supports ()" link="gdk-X-Window-System-Interaction.html#gdk-net-wm-supports" deprecated="2.24: Use gdk_x11_screen_supports_net_wm_hint() instead"/>
     <keyword type="function" name="gdk_x11_screen_supports_net_wm_hint ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-screen-supports-net-wm-hint" since="2.2"/>
     <keyword type="function" name="gdk_x11_screen_get_window_manager_name ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-screen-get-window-manager-name" since="2.2"/>
     <keyword type="function" name="gdk_x11_screen_get_monitor_output ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-screen-get-monitor-output" since="2.14"/>
@@ -926,6 +932,9 @@
     <keyword type="function" name="gdk_x11_get_xatom_by_name_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-get-xatom-by-name-for-display" since="2.2"/>
     <keyword type="function" name="gdk_x11_get_xatom_name ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-get-xatom-name"/>
     <keyword type="function" name="gdk_x11_get_xatom_name_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-get-xatom-name-for-display" since="2.2"/>
+    <keyword type="function" name="gdk_x11_set_sm_client_id ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-set-sm-client-id" since="2.24"/>
+    <keyword type="function" name="gdk_x11_window_foreign_new_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-window-foreign-new-for-display" since="2.24"/>
+    <keyword type="function" name="gdk_x11_window_lookup_for_display ()" link="gdk-X-Window-System-Interaction.html#gdk-x11-window-lookup-for-display" since="2.24"/>
     <keyword type="typedef" name="GdkAppLaunchContext" link="gdk-Application-launching.html#GdkAppLaunchContext"/>
     <keyword type="function" name="gdk_app_launch_context_new ()" link="gdk-Application-launching.html#gdk-app-launch-context-new" since="2.14"/>
     <keyword type="function" name="gdk_app_launch_context_set_display ()" link="gdk-Application-launching.html#gdk-app-launch-context-set-display" since="2.14"/>

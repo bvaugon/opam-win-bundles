@@ -1,4 +1,4 @@
-LIBRARY libfreetype-6.dll
+LIBRARY freetype6.dll
 EXPORTS
 FTC_CMapCache_Lookup
 FTC_CMapCache_New

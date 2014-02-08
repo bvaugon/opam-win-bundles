@@ -109,7 +109,7 @@ struct _GdkDisplayClass
 {
   GObjectClass parent_class;
   
-  G_CONST_RETURN gchar *     (*get_display_name)   (GdkDisplay *display);
+  const gchar *              (*get_display_name)   (GdkDisplay *display);
   gint			     (*get_n_screens)      (GdkDisplay *display);
   GdkScreen *		     (*get_screen)         (GdkDisplay *display,
 						    gint        screen_num);
@@ -141,7 +141,7 @@ struct _GdkDisplayPointerHooks
 GType       gdk_display_get_type (void) G_GNUC_CONST;
 GdkDisplay *gdk_display_open                (const gchar *display_name);
 
-G_CONST_RETURN gchar * gdk_display_get_name (GdkDisplay *display);
+const gchar * gdk_display_get_name         (GdkDisplay *display);
 
 gint        gdk_display_get_n_screens      (GdkDisplay  *display);
 GdkScreen * gdk_display_get_screen         (GdkDisplay  *display,
@@ -193,8 +193,10 @@ void             gdk_display_warp_pointer          (GdkDisplay             *disp
 						    gint                   x,
 						    gint                   y);
 
+#ifndef GDK_DISABLE_DEPRECATED
 GdkDisplayPointerHooks *gdk_display_set_pointer_hooks (GdkDisplay                   *display,
 						       const GdkDisplayPointerHooks *new_hooks);
+#endif
 
 GdkDisplay *gdk_display_open_default_libgtk_only (void);
 

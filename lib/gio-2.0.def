@@ -1,4 +1,27 @@
 EXPORTS
+	g_action_activate
+	g_action_get_enabled
+	g_action_get_name
+	g_action_get_parameter_type
+	g_action_get_state
+	g_action_get_state_hint
+	g_action_get_state_type
+	g_action_get_type
+	g_action_group_action_added
+	g_action_group_action_enabled_changed
+	g_action_group_action_removed
+	g_action_group_action_state_changed
+	g_action_group_activate_action
+	g_action_group_change_action_state
+	g_action_group_get_action_enabled
+	g_action_group_get_action_parameter_type
+	g_action_group_get_action_state
+	g_action_group_get_action_state_hint
+	g_action_group_get_action_state_type
+	g_action_group_get_type
+	g_action_group_has_action
+	g_action_group_list_actions
+	g_action_set_state
 	g_app_info_add_supports_type
 	g_app_info_can_delete
 	g_app_info_can_remove_supports_type
@@ -15,9 +38,11 @@ EXPORTS
 	g_app_info_get_description
 	g_app_info_get_display_name
 	g_app_info_get_executable
+	g_app_info_get_fallback_for_type
 	g_app_info_get_icon
 	g_app_info_get_id
 	g_app_info_get_name
+	g_app_info_get_recommended_for_type
 	g_app_info_get_type 
 	g_app_info_launch
 	g_app_info_launch_default_for_uri
@@ -26,6 +51,7 @@ EXPORTS
 	g_app_info_reset_type_associations
 	g_app_info_set_as_default_for_extension
 	g_app_info_set_as_default_for_type
+	g_app_info_set_as_last_used_for_type
 	g_app_info_should_show
 	g_app_info_supports_files
 	g_app_info_supports_uris
@@ -34,6 +60,36 @@ EXPORTS
 	g_app_launch_context_get_type 
 	g_app_launch_context_launch_failed
 	g_app_launch_context_new
+	g_application_activate
+	g_application_command_line_get_arguments
+	g_application_command_line_get_cwd
+	g_application_command_line_get_environ
+	g_application_command_line_get_exit_status
+	g_application_command_line_get_is_remote
+	g_application_command_line_get_platform_data
+	g_application_command_line_get_type
+	g_application_command_line_getenv
+	g_application_command_line_print
+	g_application_command_line_printerr
+	g_application_command_line_set_exit_status
+	g_application_flags_get_type
+	g_application_get_application_id
+	g_application_get_flags
+	g_application_get_inactivity_timeout
+	g_application_get_is_registered
+	g_application_get_is_remote
+	g_application_get_type 
+	g_application_hold
+	g_application_id_is_valid
+	g_application_new
+	g_application_open
+	g_application_register
+	g_application_release
+	g_application_run
+	g_application_set_action_group
+	g_application_set_application_id
+	g_application_set_flags
+	g_application_set_inactivity_timeout
 	g_ask_password_flags_get_type 
 	g_async_initable_get_type 
 	g_async_initable_init_async
@@ -94,6 +150,7 @@ EXPORTS
 	g_cancellable_release_fd
 	g_cancellable_reset
 	g_cancellable_set_error_if_cancelled
+	g_cancellable_source_new
 	g_charset_converter_get_num_fallbacks
 	g_charset_converter_get_type
 	g_charset_converter_get_use_fallback
@@ -401,6 +458,7 @@ EXPORTS
 	g_emblem_new_with_origin
 	g_emblem_origin_get_type 
 	g_emblemed_icon_add_emblem
+	g_emblemed_icon_clear_emblems
 	g_emblemed_icon_get_emblems
 	g_emblemed_icon_get_icon
 	g_emblemed_icon_get_type 
@@ -731,6 +789,9 @@ EXPORTS
 	g_io_stream_has_pending
 	g_io_stream_is_closed
 	g_io_stream_set_pending
+	g_io_stream_splice_async
+	g_io_stream_splice_finish
+	g_io_stream_splice_flags_get_type 
 	g_keyfile_settings_backend_new
 	g_loadable_icon_get_type 
 	g_loadable_icon_load
@@ -746,6 +807,7 @@ EXPORTS
 	g_memory_output_stream_get_type 
 	g_memory_output_stream_new
 	g_memory_output_stream_steal_data
+	g_memory_settings_backend_new
 	g_mount_can_eject
 	g_mount_can_unmount
 	g_mount_eject
@@ -805,6 +867,7 @@ EXPORTS
 	g_network_service_get_type 
 	g_network_service_new
 	g_network_service_set_scheme
+	g_null_settings_backend_new
 	g_output_stream_clear_pending
 	g_output_stream_close
 	g_output_stream_close_async
@@ -837,6 +900,17 @@ EXPORTS
 	g_permission_release
 	g_permission_release_async
 	g_permission_release_finish
+	g_pollable_input_stream_can_poll
+	g_pollable_input_stream_create_source
+	g_pollable_input_stream_get_type 
+	g_pollable_input_stream_is_readable
+	g_pollable_input_stream_read_nonblocking
+	g_pollable_output_stream_can_poll
+	g_pollable_output_stream_create_source
+	g_pollable_output_stream_get_type 
+	g_pollable_output_stream_is_writable
+	g_pollable_output_stream_write_nonblocking
+	g_pollable_source_new
 	g_proxy_address_enumerator_get_type
 	g_proxy_address_get_destination_hostname
 	g_proxy_address_get_destination_port
@@ -883,6 +957,7 @@ EXPORTS
 	g_settings_backend_changed
 	g_settings_backend_changed_tree
 	g_settings_backend_flatten_tree
+	g_settings_backend_get_default
 	g_settings_backend_get_type
 	g_settings_backend_keys_changed
 	g_settings_backend_path_changed
@@ -902,6 +977,7 @@ EXPORTS
 	g_settings_get_has_unapplied
 	g_settings_get_int
 	g_settings_get_mapped
+	g_settings_get_range
 	g_settings_get_string
 	g_settings_get_strv
 	g_settings_get_type
@@ -909,11 +985,13 @@ EXPORTS
 	g_settings_is_writable
 	g_settings_list_children
 	g_settings_list_keys
+	g_settings_list_relocatable_schemas
 	g_settings_list_schemas
 	g_settings_new
 	g_settings_new_with_backend
 	g_settings_new_with_backend_and_path
 	g_settings_new_with_path
+	g_settings_range_check
 	g_settings_reset
 	g_settings_revert
 	g_settings_set
@@ -927,8 +1005,19 @@ EXPORTS
 	g_settings_set_value
 	g_settings_sync
 	g_settings_unbind
+	g_simple_action_get_parameter_type
+	g_simple_action_get_type
+	g_simple_action_group_get_type 
+	g_simple_action_group_insert
+	g_simple_action_group_lookup
+	g_simple_action_group_new
+	g_simple_action_group_remove
+	g_simple_action_new
+	g_simple_action_new_stateful
+	g_simple_action_set_enabled
 	g_simple_async_report_error_in_idle
 	g_simple_async_report_gerror_in_idle
+	g_simple_async_report_take_gerror_in_idle
 	g_simple_async_result_complete
 	g_simple_async_result_complete_in_idle
 	g_simple_async_result_get_op_res_gboolean
@@ -940,6 +1029,7 @@ EXPORTS
 	g_simple_async_result_new
 	g_simple_async_result_new_error
 	g_simple_async_result_new_from_error
+	g_simple_async_result_new_take_error
 	g_simple_async_result_propagate_error
 	g_simple_async_result_run_in_thread
 	g_simple_async_result_set_error
@@ -949,6 +1039,7 @@ EXPORTS
 	g_simple_async_result_set_op_res_gboolean
 	g_simple_async_result_set_op_res_gpointer
 	g_simple_async_result_set_op_res_gssize
+	g_simple_async_result_take_error
 	g_simple_permission_get_type
 	g_simple_permission_new
 	g_socket_accept
@@ -982,6 +1073,8 @@ EXPORTS
 	g_socket_client_get_protocol
 	g_socket_client_get_socket_type
 	g_socket_client_get_timeout
+	g_socket_client_get_tls
+	g_socket_client_get_tls_validation_flags
 	g_socket_client_get_type 
 	g_socket_client_new
 	g_socket_client_set_enable_proxy
@@ -990,6 +1083,8 @@ EXPORTS
 	g_socket_client_set_protocol
 	g_socket_client_set_socket_type
 	g_socket_client_set_timeout
+	g_socket_client_set_tls
+	g_socket_client_set_tls_validation_flags
 	g_socket_close
 	g_socket_condition_check
 	g_socket_condition_wait
@@ -1077,6 +1172,9 @@ EXPORTS
 	g_tcp_connection_get_graceful_disconnect
 	g_tcp_connection_get_type 
 	g_tcp_connection_set_graceful_disconnect
+	g_tcp_wrapper_connection_get_base_io_stream
+	g_tcp_wrapper_connection_get_type 
+	g_tcp_wrapper_connection_new
 	g_themed_icon_append_name
 	g_themed_icon_get_names
 	g_themed_icon_get_type 
@@ -1087,6 +1185,50 @@ EXPORTS
 	g_threaded_resolver_get_type 
 	g_threaded_socket_service_get_type 
 	g_threaded_socket_service_new
+	g_tls_authentication_mode_get_type 
+	g_tls_backend_get_certificate_type
+	g_tls_backend_get_client_connection_type
+	g_tls_backend_get_default
+	g_tls_backend_get_server_connection_type
+	g_tls_backend_get_type 
+	g_tls_backend_supports_tls
+	g_tls_certificate_flags_get_type 
+	g_tls_certificate_get_issuer
+	g_tls_certificate_get_type 
+	g_tls_certificate_list_new_from_file
+	g_tls_certificate_new_from_file
+	g_tls_certificate_new_from_files
+	g_tls_certificate_new_from_pem
+	g_tls_certificate_verify
+	g_tls_client_connection_get_accepted_cas
+	g_tls_client_connection_get_server_identity
+	g_tls_client_connection_get_type 
+	g_tls_client_connection_get_use_ssl3
+	g_tls_client_connection_get_validation_flags
+	g_tls_client_connection_new
+	g_tls_client_connection_set_server_identity
+	g_tls_client_connection_set_use_ssl3
+	g_tls_client_connection_set_validation_flags
+	g_tls_connection_emit_accept_certificate
+	g_tls_connection_get_certificate
+	g_tls_connection_get_peer_certificate
+	g_tls_connection_get_peer_certificate_errors
+	g_tls_connection_get_rehandshake_mode
+	g_tls_connection_get_require_close_notify
+	g_tls_connection_get_type 
+	g_tls_connection_get_use_system_certdb
+	g_tls_connection_handshake
+	g_tls_connection_handshake_async
+	g_tls_connection_handshake_finish
+	g_tls_connection_set_certificate
+	g_tls_connection_set_rehandshake_mode
+	g_tls_connection_set_require_close_notify
+	g_tls_connection_set_use_system_certdb
+	g_tls_error_get_type 
+	g_tls_error_quark
+	g_tls_rehandshake_mode_get_type 
+	g_tls_server_connection_get_type 
+	g_tls_server_connection_new
 	g_unix_socket_address_type_get_type 
 	g_vfs_get_default
 	g_vfs_get_file_for_path

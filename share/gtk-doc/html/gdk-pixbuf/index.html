@@ -6,11 +6,11 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GDK-PixBuf Reference Manual">
 <link rel="next" href="rn01.html" title="API Reference">
-<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.17.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<div class="book" title="GDK-PixBuf Reference Manual">
+<div class="book">
 <div class="titlepage">
 <div>
 <div><table class="navigation" id="top" width="100%" cellpadding="2" cellspacing="0"><tr><th valign="middle"><p class="title">GDK-PixBuf Reference Manual</p></th></tr></table></div>
@@ -23,14 +23,14 @@
 	  </p></div></div>
 </div></div></div>
 <div><p class="releaseinfo">
-      Version 2.22.1
+      Version 2.24.0
 
       The latest version of this documentation can be found on-line at
       <a class="ulink" href="http://library.gnome.org/devel/gdk-pixbuf/unstable/" target="_top">http://library.gnome.org/devel/gdk-pixbuf/unstable/</a>.
     </p></div>
 <div><p class="copyright">Copyright © 2000 The Free Software Foundation</p></div>
-<div><div class="legalnotice" title="Legal Notice">
-<a name="id575097"></a><p>
+<div><div class="legalnotice">
+<a name="id434355"></a><p>
 	Permission is granted to copy, distribute and/or modify this
 	document under the terms of the <em class="citetitle">GNU Free
 	Documentation License</em>, Version 1.1 or any later
@@ -65,28 +65,28 @@
 <dt><span class="reference"><a href="rn01.html">I. API Reference</a></span></dt>
 <dd><dl>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-Versioning.html">Versioning</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-Versioning.html">Initialization and Versions</a></span><span class="refpurpose"> — Library version numbers.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-gdk-pixbuf.html">gdk-pixbuf</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-The-GdkPixbuf-Structure.html">The GdkPixbuf Structure</a></span><span class="refpurpose"> — Information that describes an image.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-refcounting.html">refcounting</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-Reference-Counting-and-Memory-Mangement.html">Reference Counting and Memory Mangement</a></span><span class="refpurpose"> — Functions for reference counting and memory management on pixbufs.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-file-loading.html">file-loading</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-File-Loading.html">File Loading</a></span><span class="refpurpose"> — Loading a pixbuf from a file.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-file-saving.html">file-saving</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-File-saving.html">File saving</a></span><span class="refpurpose"> — Saving a pixbuf to a file.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-creating.html">creating</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-Image-Data-in-Memory.html">Image Data in Memory</a></span><span class="refpurpose"> — Creating a pixbuf from image data that is already in memory.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-inline.html">inline</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-Inline-data.html">Inline data</a></span><span class="refpurpose"> — Functions for inlined pixbuf handling.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-scaling.html">scaling</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-Scaling.html">Scaling</a></span><span class="refpurpose"> — Scaling pixbufs and scaling and compositing pixbufs</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="gdk-pixbuf-gdk-pixbuf-rendering.html">Rendering</a></span><span class="refpurpose"> — Rendering a pixbuf to a GDK drawable.</span>
@@ -95,16 +95,16 @@
 <span class="refentrytitle"><a href="gdk-pixbuf-gdk-pixbuf-from-drawables.html">Drawables to Pixbufs</a></span><span class="refpurpose"> — Getting parts of a GDK drawable's image data into a pixbuf.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-util.html">util</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-Utilities.html">Utilities</a></span><span class="refpurpose"> — Utility and miscellaneous convenience functions.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-animation.html">animation</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-Animations.html">Animations</a></span><span class="refpurpose"> — Animated images.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="GdkPixbufLoader.html">GdkPixbufLoader</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="GdkPixbufLoader.html">GdkPixbufLoader</a></span><span class="refpurpose"> — Application-driven progressive image loading.</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gdk-pixbuf-Module-Interface.html">Module Interface</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gdk-pixbuf-Module-Interface.html">Module Interface</a></span><span class="refpurpose"> — Extending &amp;gdk-pixbuf;</span>
 </dt>
 </dl></dd>
 <dt><span class="reference"><a href="rn02.html">II. Tools Reference</a></span></dt>
@@ -131,6 +131,6 @@
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.15</div>
+          Generated by GTK-Doc V1.17.1</div>
 </body>
 </html>

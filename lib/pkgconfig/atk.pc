@@ -1,4 +1,4 @@
-prefix=c:/devel/target/4d0add2a6f7c8ee39d34a3af8b451d08
+prefix=/devel/target/2b4acd63a3ff1c3662e3b9b0910e896f
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

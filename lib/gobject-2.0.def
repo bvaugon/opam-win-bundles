@@ -37,6 +37,7 @@ EXPORTS
 	g_cclosure_new_object
 	g_cclosure_new_object_swap
 	g_cclosure_new_swap
+	g_clear_object
 	g_closure_add_finalize_notifier
 	g_closure_add_invalidate_notifier
 	g_closure_add_marshal_guards
@@ -172,6 +173,7 @@ EXPORTS
 	g_pointer_type_register_static
 	g_ptr_array_get_type 
 	g_regex_get_type 
+	g_signal_accumulator_first_wins
 	g_signal_accumulator_true_handled
 	g_signal_add_emission_hook
 	g_signal_chain_from_overridden
@@ -212,6 +214,7 @@ EXPORTS
 	g_signal_type_cclosure_new
 	g_slist_remove_all PRIVATE
 	g_source_set_closure
+	g_source_set_dummy_callback
 	g_strdup_value_contents
 	g_strv_get_type 
 	g_type_add_class_cache_func
