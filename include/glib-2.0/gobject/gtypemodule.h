@@ -4,7 +4,7 @@
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
+ * version 2.1 of the License, or (at your option) any later version.
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -12,16 +12,14 @@
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ * License along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
+#ifndef __G_TYPE_MODULE_H__
+#define __G_TYPE_MODULE_H__
+
 #if !defined (__GLIB_GOBJECT_H_INSIDE__) && !defined (GOBJECT_COMPILATION)
 #error "Only <glib-object.h> can be included directly."
 #endif
-
-#ifndef __G_TYPE_MODULE_H__
-#define __G_TYPE_MODULE_H__
 
 #include <gobject/gobject.h>
 #include <gobject/genums.h>
@@ -38,11 +36,13 @@ typedef struct _GTypeModuleClass GTypeModuleClass;
 #define G_IS_TYPE_MODULE_CLASS(class)   (G_TYPE_CHECK_CLASS_TYPE ((class), G_TYPE_TYPE_MODULE))
 #define G_TYPE_MODULE_GET_CLASS(module) (G_TYPE_INSTANCE_GET_CLASS ((module), G_TYPE_TYPE_MODULE, GTypeModuleClass))
 
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(GTypeModule, g_object_unref)
+
 /**
  * GTypeModule:
  * @name: the name of the module
  * 
- * The members of the <structname>GTypeModule</structname> structure should not 
+ * The members of the GTypeModule structure should not 
  * be accessed directly, except for the @name field.
  */
 struct _GTypeModule 
@@ -93,10 +93,10 @@ struct _GTypeModuleClass
  * A convenience macro for dynamic type implementations, which declares a
  * class initialization function, an instance initialization function (see 
  * #GTypeInfo for information about these) and a static variable named 
- * @t_n<!-- -->_parent_class pointing to the parent class. Furthermore, 
- * it defines a <function>*_get_type()</function> and a static 
- * <function>*_register_type()</function> function for use in your
- * <function>module_init()</function>.
+ * `t_n`_parent_class pointing to the parent class. Furthermore,
+ * it defines a `*_get_type()` and a static `*_register_type()` functions
+ * for use in your `module_init()`.
+ *
  * See G_DEFINE_DYNAMIC_TYPE_EXTENDED() for an example.
  * 
  * Since: 2.14
@@ -160,7 +160,7 @@ struct _GTypeModuleClass
  *   };
  *   gtk_gadget_type_id = g_type_module_register_type (type_module,
  *                                                     GTK_TYPE_THING,
- *                                                     GtkGadget,
+ *                                                     "GtkGadget",
  *                                                     &g_define_type_info,
  *                                                     (GTypeFlags) flags);
  *   {
@@ -180,11 +180,17 @@ static void     type_name##_class_init        (TypeName##Class *klass); \
 static void     type_name##_class_finalize    (TypeName##Class *klass); \
 static gpointer type_name##_parent_class = NULL; \
 static GType    type_name##_type_id = 0; \
-static void     type_name##_class_intern_init (gpointer klass) \
+static gint     TypeName##_private_offset; \
+\
+_G_DEFINE_TYPE_EXTENDED_CLASS_INIT(TypeName, type_name) \
+\
+G_GNUC_UNUSED \
+static inline gpointer \
+type_name##_get_instance_private (TypeName *self) \
 { \
-  type_name##_parent_class = g_type_class_peek_parent (klass); \
-  type_name##_class_init ((TypeName##Class*) klass); \
+  return (G_STRUCT_MEMBER_P (self, TypeName##_private_offset)); \
 } \
+\
 GType \
 type_name##_get_type (void) \
 { \
@@ -193,17 +199,17 @@ type_name##_get_type (void) \
 static void \
 type_name##_register_type (GTypeModule *type_module) \
 { \
-  GType g_define_type_id; \
+  GType g_define_type_id G_GNUC_UNUSED; \
   const GTypeInfo g_define_type_info = { \
     sizeof (TypeName##Class), \
     (GBaseInitFunc) NULL, \
     (GBaseFinalizeFunc) NULL, \
-    (GClassInitFunc) type_name##_class_intern_init, \
-    (GClassFinalizeFunc) type_name##_class_finalize, \
+    (GClassInitFunc)(void (*)(void)) type_name##_class_intern_init, \
+    (GClassFinalizeFunc)(void (*)(void)) type_name##_class_finalize, \
     NULL,   /* class_data */ \
     sizeof (TypeName), \
     0,      /* n_preallocs */ \
-    (GInstanceInitFunc) type_name##_init, \
+    (GInstanceInitFunc)(void (*)(void)) type_name##_init, \
     NULL    /* value_table */ \
   }; \
   type_name##_type_id = g_type_module_register_type (type_module, \
@@ -232,28 +238,54 @@ type_name##_register_type (GTypeModule *type_module) \
  */
 #define G_IMPLEMENT_INTERFACE_DYNAMIC(TYPE_IFACE, iface_init)       { \
   const GInterfaceInfo g_implement_interface_info = { \
-    (GInterfaceInitFunc) iface_init, NULL, NULL      \
+    (GInterfaceInitFunc)(void (*)(void)) iface_init, NULL, NULL      \
   }; \
   g_type_module_add_interface (type_module, g_define_type_id, TYPE_IFACE, &g_implement_interface_info); \
 }
 
+/**
+ * G_ADD_PRIVATE_DYNAMIC:
+ * @TypeName: the name of the type in CamelCase
+ *
+ * A convenience macro to ease adding private data to instances of a new dynamic
+ * type in the @_C_ section of G_DEFINE_DYNAMIC_TYPE_EXTENDED(). See
+ * G_ADD_PRIVATE() for details, it is similar but for static types.
+ *
+ * Note that this macro can only be used together with the
+ * G_DEFINE_DYNAMIC_TYPE_EXTENDED macros, since it depends on variable
+ * names from that macro.
+ *
+ * Since: 2.38
+ */
+#define G_ADD_PRIVATE_DYNAMIC(TypeName)         { \
+  TypeName##_private_offset = sizeof (TypeName##Private); \
+}
+
+GLIB_AVAILABLE_IN_ALL
 GType    g_type_module_get_type       (void) G_GNUC_CONST;
+GLIB_AVAILABLE_IN_ALL
 gboolean g_type_module_use            (GTypeModule          *module);
+GLIB_AVAILABLE_IN_ALL
 void     g_type_module_unuse          (GTypeModule          *module);
+GLIB_AVAILABLE_IN_ALL
 void     g_type_module_set_name       (GTypeModule          *module,
                                        const gchar          *name);
+GLIB_AVAILABLE_IN_ALL
 GType    g_type_module_register_type  (GTypeModule          *module,
                                        GType                 parent_type,
                                        const gchar          *type_name,
                                        const GTypeInfo      *type_info,
                                        GTypeFlags            flags);
+GLIB_AVAILABLE_IN_ALL
 void     g_type_module_add_interface  (GTypeModule          *module,
                                        GType                 instance_type,
                                        GType                 interface_type,
                                        const GInterfaceInfo *interface_info);
+GLIB_AVAILABLE_IN_ALL
 GType    g_type_module_register_enum  (GTypeModule          *module,
                                        const gchar          *name,
                                        const GEnumValue     *const_static_values);
+GLIB_AVAILABLE_IN_ALL
 GType    g_type_module_register_flags (GTypeModule          *module,
                                        const gchar          *name,
                                        const GFlagsValue    *const_static_values);
